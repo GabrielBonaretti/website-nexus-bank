@@ -39,11 +39,11 @@ export const ContentText = styled.p`
 export const Image = styled.img`
   -webkit-user-drag: none;
   user-select: none;
-  animation: giradinha 0.5s ease-in-out;
-  /* &::after {
+  /*animation: giradinha 0.5s ease-in-out;
+   &::after {
     animation: none;
 
-  } */
+  } 
 
   &:hover {
     animation: tremidinha 0.5s ease-in-out 1 both;
@@ -72,5 +72,5 @@ export const Image = styled.img`
     100% {
       transform: rotateZ(0deg);
     }
-  }
+  }*/
 `

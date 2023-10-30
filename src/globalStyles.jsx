@@ -17,8 +17,8 @@ export const GlobalStyle = createGlobalStyle`
         }
         /* 65% {
             transform: translateY(-5%);
-        } */
-        to {
+            } */
+            to {
             transform: translateY(0%);
             opacity: 1;
         }
