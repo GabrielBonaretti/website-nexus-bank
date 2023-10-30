@@ -8,6 +8,8 @@ export const HeaderDiv = styled.div`
     height: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    animation: smooth-appear 0.7s ease-in-out;
+    user-select: none;
 `
 
 export const DivButtons = styled.div`

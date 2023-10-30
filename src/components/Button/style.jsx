@@ -16,6 +16,7 @@ export const ButtonStyled = styled.button`
     &:hover {
         background: ${props => props.$primary ? "transparent" : "#DBB22F"};
         color: ${props => props.$primary ? "#DBB22F" : "#1A1E1C"};
+        cursor: pointer;
     }
     
     &:active {

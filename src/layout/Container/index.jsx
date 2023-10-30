@@ -1,19 +1,16 @@
 // styled components
 import Button from "../../components/Button";
-import { DivContainer, DivContent, Title, ContentText } from "./style";
+import { DivContainer, DivContent, Title, ContentText, Image } from "./style";
 
-const Container = () => {
+const Container = ({ textTitle, textContent, textButton, imgSrc }) => {
   return (
     <DivContainer>
       <DivContent>
-        <Title>Discover the Perfect Credit Card for You</Title>
-        <ContentText>
-          Discover the power of our secure and rewarding credit cards. Explore
-          our range of credit cards and take control of your finances today.
-        </ContentText>
-        <Button isPrimary={true} text="Get Started" />
+        <Title>{textTitle}</Title>
+        <ContentText>{textContent}</ContentText>
+        <Button isPrimary={true} text={textButton} />
       </DivContent>
-      <img src="src\assets\images\card.svg" alt="card" />
+      <Image src={imgSrc} alt="card" />
     </DivContainer>
   );
 };
