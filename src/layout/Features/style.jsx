@@ -13,7 +13,9 @@ export const DivFeatures = styled.div`
 export const DivExemples = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 32px;
+  width: 100%;
 `;
 
 export const Title = styled.h2`

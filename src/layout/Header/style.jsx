@@ -5,7 +5,7 @@ export const HeaderDiv = styled.div`
     width: 80%;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    height: 80px;
     padding-top: 20px;
     padding-bottom: 20px;
     animation: smooth-appear 0.7s ease-in-out;

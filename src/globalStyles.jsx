@@ -14,11 +14,7 @@ export const GlobalStyle = createGlobalStyle`
         from {
             transform: translateY(5%);
             opacity: 0;
-        }
-        /* 65% {
-            transform: translateY(-5%);
-            } */
-            to {
+        } to {
             transform: translateY(0%);
             opacity: 1;
         }
@@ -27,8 +23,7 @@ export const GlobalStyle = createGlobalStyle`
     @keyframes smooth-appear {
         from {
             opacity: 0;
-        }
-        to{
+        } to {
             opacity: 1;
         }
     }

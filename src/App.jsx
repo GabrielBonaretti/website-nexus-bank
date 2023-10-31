@@ -16,8 +16,8 @@ function App() {
         textTitle="Discover the Perfect Credit Card for You"
         textContent="Discover the power of our secure and rewarding credit cards. Explore our range of credit cards and take control of your finances today."
         textButton="Get Started"
-        imgSrc="src\assets\images\card.svg"
-      />
+        img1={true}
+        />
 
       <Features/>
 
@@ -25,7 +25,7 @@ function App() {
         textTitle="Design your personalized credit card"
         textContent="You have the freedom to personalize the design of your credit card, ensuring a truly unique experience that makes you feel extraordinary"
         textButton="Create new card"
-        imgSrc="src\assets\images\card2.svg"
+        img2={true}
       />
 
       <Container

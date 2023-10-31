@@ -1,22 +1,49 @@
 // styled components
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
-import { DivContainer, DivContent, Title, ContentText, Image } from "./style";
+import { DivContainer, DivContent, Title, ContentText, Image, CardBlack, CardHalfBlack, CardWhite, DivCards } from "./style";
 
-const Container = ({ textTitle, textContent, textButton, imgSrc, contentLeft = true }) => {
+const Container = ({ textTitle, textContent, textButton, contentLeft = true, img1 = false, img2 = false }) => {
+  
+  const [animation5, setAnimation] = useState("");
+  
+  useEffect(()=>{
+   addEventListener('scroll', (e)=>{
+    console.log(window.scrollY)
+    if(window.scrollY == 1000){
+      setAnimation("animation-card1 5s ease-in-out both;")
+    }
+   }) 
+  })
+
+
+
+  
   return (
     <DivContainer>
       {!contentLeft && (
-        <Image src={imgSrc} alt="card" />  
+        <Image src="src\assets\images\card.svg" alt="card" />
       )}
+
       <DivContent>
-        
         <Title>{textTitle}</Title>
         <ContentText>{textContent}</ContentText>
         <Button isPrimary={true} text={textButton} />
       </DivContent>
-      {contentLeft && (
-        <Image src={imgSrc} alt="card" />  
+
+      {contentLeft && img1 && (
+        <Image src="src\assets\images\card.svg" alt="card" />
       )}
+
+      {contentLeft && img2 && (
+        <DivCards>
+          <CardHalfBlack src="src\assets\images\Card 34.svg" alt="card34" />
+          <CardBlack src="src\assets\images\Card 35.svg" alt="card35" />
+          <CardWhite src="src\assets\images\Card 36.svg" alt="card36" />
+        </DivCards>
+      )}
+
+
     </DivContainer>
   );
 };
