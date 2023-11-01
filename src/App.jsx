@@ -1,11 +1,11 @@
 // Styled components
 import { DivBackground } from "./AppStyle";
-import Container from "./layout/Banner";
-import Features from "./layout/Features";
 
 // Layouts
+import Container from "./layout/Banner";
+import Features from "./layout/Features";
+import Blog from "./layout/Blog";
 import Header from "./layout/Header";
-
 
 function App() {
   return (
@@ -17,9 +17,9 @@ function App() {
         textContent="Discover the power of our secure and rewarding credit cards. Explore our range of credit cards and take control of your finances today."
         textButton="Get Started"
         img1={true}
-        />
+      />
 
-      <Features/>
+      <Features />
 
       <Container
         textTitle="Design your personalized credit card"
@@ -35,6 +35,8 @@ function App() {
         imgSrc="src\assets\images\card3.svg"
         contentLeft={false}
       />
+
+      <Blog />
     </DivBackground>
   );
 }

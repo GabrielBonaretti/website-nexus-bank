@@ -3,6 +3,7 @@ import { DivExemples, DivFeatures, Title } from "./style";
 
 // font awesome
 import { faShield, faChartPie, faChartSimple } from "@fortawesome/free-solid-svg-icons";
+
 // components
 import FeatureExample from "../../components/FeatureExample";
 

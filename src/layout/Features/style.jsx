@@ -19,6 +19,7 @@ export const DivExemples = styled.div`
 `;
 
 export const Title = styled.h2`
+  margin: 0;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
