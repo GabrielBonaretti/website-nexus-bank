@@ -85,7 +85,7 @@ const ImageConfig = styled.img`
 
 export const CardHalfBlack = styled(ImageConfig)`
   z-index: 2;
-  animation: animation-card-halfblack 3s linear both;
+  animation: animation-card-halfblack 2s ease-in-out both;
 
   @keyframes animation-card-halfblack {
     from {
@@ -99,7 +99,7 @@ export const CardHalfBlack = styled(ImageConfig)`
 
 export const CardBlack = styled(ImageConfig)`
   z-index: 3;
-  animation: animation-card-black 3s linear both;
+  animation: animation-card-black 2s ease-in-out both;
 
   @keyframes animation-card-black {
     from {
@@ -113,7 +113,7 @@ export const CardBlack = styled(ImageConfig)`
 
 export const CardWhite = styled(ImageConfig)`
   z-index: 1;
-  animation: animation-card-white 3s linear both;
+  animation: animation-card-white 2s ease-in-out both;
 
   @keyframes animation-card-white {
     from {

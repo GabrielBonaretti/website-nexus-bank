@@ -5,6 +5,7 @@ export const DivFeatures = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 64px;
   width: 80%;
   animation: smooth-climb 0.7s ease-in-out;

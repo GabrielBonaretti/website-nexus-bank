@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const FeaturesExampleDiv = styled.div`
   display: flex;
+  width: fit-content;
   align-items: flex-start;
+  justify-content: center;
   gap: 24px;
 `;
 
@@ -32,7 +34,7 @@ export const Title = styled.h3`
 `;
 
 export const Text = styled.p`
-  width: 286px;
+  max-width: 286px;
   margin: 0;
   color: #adb2b1;
   font-size: 16px;

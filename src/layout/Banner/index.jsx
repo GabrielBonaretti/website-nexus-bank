@@ -26,7 +26,7 @@ const Container = ({
   useEffect(() => {
     addEventListener("scroll", (e) => {
       console.log(window.scrollY);
-      if (window.scrollY >= 550) {
+      if (window.scrollY >= 500) {
         setAnimation(true);
       } else {
         setAnimation(false);
