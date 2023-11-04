@@ -6,6 +6,7 @@ import Container from "./layout/Banner";
 import Features from "./layout/Features";
 import Blog from "./layout/Blog";
 import Header from "./layout/Header";
+import Faq from "./layout/Faq";
 
 function App() {
   return (
@@ -32,11 +33,19 @@ function App() {
         textTitle="Find the Perfect Credit Card for You"
         textContent="Discover your ideal credit card with ease. Our comprehensive selection caters to every financial need and lifestyle. Whether you seek cashback rewards, travel perks, or building credit, we have the perfect credit card waiting for you. Unleash the possibilities and find the credit card that fits your unique goals and aspirations."
         textButton="Learn More"
-        imgSrc="src\assets\images\card3.svg"
-        contentLeft={false}
+        img3={true}
       />
 
       <Blog />
+
+      <Faq/>
+
+      <Container
+        textTitle="Easy Way to manage your finances"
+        textContent="Easy to use mobile app that support on android and ios."
+        textButton="Get it on google play"
+        img4={true}
+      />
     </DivBackground>
   );
 }

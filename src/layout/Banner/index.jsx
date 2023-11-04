@@ -17,9 +17,10 @@ const Container = ({
   textTitle,
   textContent,
   textButton,
-  contentLeft = true,
   img1 = false,
   img2 = false,
+  img3 = false,
+  img4 = false,
 }) => {
   const [animation, setAnimation] = useState(false);
 
@@ -36,7 +37,7 @@ const Container = ({
 
   return (
     <DivContainer>
-      {!contentLeft && <Image src="src\assets\images\card.svg" alt="card" />}
+      {img3 && <Image src="src\assets\images\card3.svg" alt="card" />}
 
       <DivContent>
         <Title>{textTitle}</Title>
@@ -44,16 +45,18 @@ const Container = ({
         <Button isPrimary={true} text={textButton} />
       </DivContent>
 
-      {contentLeft && img1 && (
-        <Image src="src\assets\images\card.svg" alt="card" />
-      )}
+      {img1 && <Image src="src\assets\images\card.svg" alt="card" />}
 
-      {contentLeft && img2 && animation && (
+      {img2 && animation && (
         <DivCards>
           <CardHalfBlack src="src\assets\images\Card 34.svg" alt="card34" />
           <CardBlack src="src\assets\images\Card 35.svg" alt="card35" />
           <CardWhite src="src\assets\images\Card 36.svg" alt="card36" />
         </DivCards>
+      )}
+
+      {img4 && animation && (
+        <Image src="src\assets\images\Phone.svg" alt="card" />
       )}
     </DivContainer>
   );
