@@ -15,6 +15,7 @@ import {
   CardGold,
   CardWhite,
   DivCards,
+  Image2,
 } from "./style";
 
 const Container = ({
@@ -41,7 +42,7 @@ const Container = ({
 
   return (
     <DivContainer>
-      {img3 && <img src="src\assets\images\card3.svg" alt="card" />}
+      {img3 && <Image src="src\assets\images\card2.svg" alt="card" />}
 
       <DivContent>
         <Title>{textTitle}</Title>

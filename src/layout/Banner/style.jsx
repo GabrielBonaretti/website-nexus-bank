@@ -124,3 +124,22 @@ export const CardWhite = styled(ImageConfig)`
     }
   }
 `;
+
+
+export const Image2 = styled.img`
+  -webkit-user-drag: none;
+  user-select: none;
+  animation: spinning 3s linear infinite;
+
+  @keyframes spinning {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(90deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+`

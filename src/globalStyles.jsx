@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: "Inter", "Montserrat", sans-serif;
         color: white;
+        user-select: none;
     }
     
     @keyframes smooth-climb {

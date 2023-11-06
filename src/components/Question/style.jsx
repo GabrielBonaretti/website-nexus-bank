@@ -32,7 +32,8 @@ export const ButtonStyled = styled.button`
 `;
 
 export const ContentQuestion = styled.p`
-  display: ${props => props.$hidden ? "none" : "block"};
+
+  ${props => props.$hidden ? "animation: hide 1s ease-in both;" : "animation: show 1s ease both"};
   color: #adb2b1;
   font-size: 16px;
   font-style: normal;
@@ -40,4 +41,32 @@ export const ContentQuestion = styled.p`
   line-height: 24px; /* 150% */
   align-self: stretch;
   margin: 0;
+ 
+  @keyframes hide {
+    0% {
+      opacity: 1;
+      height: 50px;
+    }
+    75% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      height: 0px;
+    }
+  }
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+      height: 0px;
+    }
+    75% {
+      height: 50px;
+    }
+    100% {
+      height: 50px;
+      opacity: 1;
+    }
+  }
 `;
