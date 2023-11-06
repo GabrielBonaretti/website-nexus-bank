@@ -1,6 +1,10 @@
-// styled components
+// react
 import { useEffect, useState } from "react";
+
+// comoponents
 import Button from "../../components/Button";
+
+// styled components
 import {
   DivContainer,
   DivContent,
@@ -8,7 +12,7 @@ import {
   ContentText,
   Image,
   CardBlack,
-  CardHalfBlack,
+  CardGold,
   CardWhite,
   DivCards,
 } from "./style";
@@ -37,7 +41,7 @@ const Container = ({
 
   return (
     <DivContainer>
-      {img3 && <Image src="src\assets\images\card3.svg" alt="card" />}
+      {img3 && <img src="src\assets\images\card3.svg" alt="card" />}
 
       <DivContent>
         <Title>{textTitle}</Title>
@@ -45,18 +49,18 @@ const Container = ({
         <Button isPrimary={true} text={textButton} />
       </DivContent>
 
-      {img1 && <Image src="src\assets\images\card.svg" alt="card" />}
+      {img1 && <Image src="src\assets\images\card3.svg" alt="card" />}
 
       {img2 && animation && (
         <DivCards>
-          <CardHalfBlack src="src\assets\images\Card 34.svg" alt="card34" />
-          <CardBlack src="src\assets\images\Card 35.svg" alt="card35" />
-          <CardWhite src="src\assets\images\Card 36.svg" alt="card36" />
+          <CardGold src="src\assets\images\card3.svg" alt="card34" />
+          <CardBlack src="src\assets\images\card2.svg" alt="card35" />
+          <CardWhite src="src\assets\images\card1.svg" alt="card36" />
         </DivCards>
       )}
 
       {img4 && animation && (
-        <Image src="src\assets\images\Phone.svg" alt="card" />
+        <img src="src\assets\images\Phone.svg" alt="card" />
       )}
     </DivContainer>
   );

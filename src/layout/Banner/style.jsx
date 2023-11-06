@@ -83,7 +83,7 @@ const ImageConfig = styled.img`
   left: 0%;
 `;
 
-export const CardHalfBlack = styled(ImageConfig)`
+export const CardGold = styled(ImageConfig)`
   z-index: 2;
   animation: animation-card-halfblack 2s ease-in-out both;
 

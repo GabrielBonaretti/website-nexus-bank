@@ -7,6 +7,7 @@ import Features from "./layout/Features";
 import Blog from "./layout/Blog";
 import Header from "./layout/Header";
 import Faq from "./layout/Faq";
+import Footer from "./layout/Footer";
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
         textButton="Get it on google play"
         img4={true}
       />
+
+      <Footer/>
     </DivBackground>
   );
 }
