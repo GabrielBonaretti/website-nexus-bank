@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, DivBackground, DivFilter, DivForms, DivInputs, Input, Title } from './style'
+import { Button, DivBackground, DivFilter, DivForms, DivInputs, Title } from './style'
+import Input from '../../components/Input'
 
 const Register = () => {
   return (
@@ -9,11 +10,15 @@ const Register = () => {
           <Title>Create your account</Title>
 
           <DivInputs>
-            <Input placeholder="Name" type="text" />
-            <Input placeholder="CPF" type="text" />
-            <Input placeholder="E-mail" type="text" />
-            <Input placeholder="Password" type="text" />
-            <Input placeholder="Confirm password" type="text" />
+            <Input
+              placeholder="name"
+            />
+            <Input
+              placeholder="e-mail"
+            />
+            <Input
+              placeholder="password"
+            />
           </DivInputs>
 
           <Button>Create</Button>

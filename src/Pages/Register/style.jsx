@@ -23,7 +23,7 @@ export const DivForms = styled.div`
     
     width: 35%;
     /* height: 70%; */
-    padding: 50px;
+    padding: 3% 0px;
     border-radius: 30px;
     
 
@@ -31,7 +31,7 @@ export const DivForms = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 65px;
+    /* gap: 65px; */
 `
 
 export const Title = styled.p`
@@ -47,8 +47,10 @@ export const DivInputs = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
     align-self: stretch;
+    margin-bottom: 65px;
+    margin-top: 40px;
 `
 
 export const Input = styled.input`
@@ -56,7 +58,7 @@ export const Input = styled.input`
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #DBB22F;
-    padding: 13px;
+    padding: 10px;
 `
 
 export const Button = styled.div`

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
         color: white;
         user-select: none;
     }
-    
+  
     @keyframes smooth-climb {
         from {
             transform: translateY(5%);

@@ -5,8 +5,8 @@ import Register from "./Pages/Register";
 function App() {
   return (
     <>
-      {/* <LandingPage/> */}
-      <Register/>
+      <LandingPage/>
+      {/* <Register/> */}
     </>
   );
 }
