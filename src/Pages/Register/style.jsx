@@ -22,7 +22,8 @@ export const DivForms = styled.div`
     background-color: #1A1E1C;
     
     width: 35%;
-    height: 70%;
+    /* height: 70%; */
+    padding: 50px;
     border-radius: 30px;
     
 
