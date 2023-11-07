@@ -1,3 +1,4 @@
+// styled components
 import styled from "styled-components";
 
 export const HeaderDiv = styled.div`
@@ -10,6 +11,7 @@ export const HeaderDiv = styled.div`
     padding-bottom: 20px;
     animation: smooth-appear 0.7s ease-in-out;
     user-select: none;
+    overflow: hidedehide;
 `
 
 export const DivButtons = styled.div`

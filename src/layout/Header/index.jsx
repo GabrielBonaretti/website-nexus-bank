@@ -13,8 +13,8 @@ const Header = () => {
         <Navbar/>
 
         <DivButtons>
-            <ButtonHeader text="Sing in"/>
-            <ButtonHeader isPrimary={true} text="Log in"/>
+            <ButtonHeader text="Log in"/>
+            <ButtonHeader  to="/register" isPrimary={true} text="Register"/>
         </DivButtons>
     </HeaderDiv>
   )

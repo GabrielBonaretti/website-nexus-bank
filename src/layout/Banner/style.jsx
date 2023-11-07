@@ -2,11 +2,12 @@
 import styled from "styled-components";
 
 export const DivContainer = styled.div`
-  display: flex;
   width: 80%;
   height: 60vh;
+  display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   animation: smooth-climb 0.7s ease-in-out;
   user-select: none;
 `;

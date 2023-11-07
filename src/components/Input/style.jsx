@@ -22,7 +22,7 @@ export const Text = styled.p`
 
   @keyframes focus {
     to {
-      transform: translate(15%, 50%);
+      transform: translate(10px, 50%);
       color: #dbb22f;
       background-color: #1a1e1c;
     }
@@ -30,12 +30,12 @@ export const Text = styled.p`
 
   @keyframes blur {
     from {
-      transform: translate(15%, 50%);
+      transform: translate(10px, 50%);
       color: #dbb22f;
       background-color: #1a1e1c;
     }
     to {
-      transform: translate(3%, 160%);
+      transform: translate(5px, 160%);
       color: #aaa;
       background-color: #1a1e1c;
     }
@@ -49,7 +49,7 @@ export const InputStyled = styled.input`
   border: none;
   border-bottom: 1px solid #dbb22f;
   padding: 15px;
-  font-size: 15px;
+  font-size: 13px;
 
   ${(props) => props.$focus && `
     outline: 0; 

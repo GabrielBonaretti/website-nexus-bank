@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Div, InputStyled, Text } from "./style";
 
-const Input = ({ placeholder }) => {
+const Input = ({ placeholder, type="text" }) => {
   const [teste, setTeste] = useState(false);
   const [text, setText] = useState("");
   return (
@@ -10,14 +10,14 @@ const Input = ({ placeholder }) => {
 
       {text.length > 0 ? (
         <InputStyled 
-          type="text" 
+          type={type}
           $focus
           onFocus={(e) => setTeste(true)} 
           onChange={(e) => setText(e.target.value)}  
         />
       ) : (
         <InputStyled 
-          type="text" 
+          type={type}
           onFocus={(e) => setTeste(true)} 
           onBlur={(e) => setTeste(false)}
           onChange={(e) => setText(e.target.value)}  

@@ -17,7 +17,15 @@ const Register = () => {
               placeholder="e-mail"
             />
             <Input
+              placeholder="cpf"
+            />
+            <Input
               placeholder="password"
+              type="password"
+              />
+            <Input
+              placeholder="confirm password"
+              type="password"
             />
           </DivInputs>
 
