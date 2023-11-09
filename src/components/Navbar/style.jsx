@@ -6,13 +6,16 @@ export const NavStyled = styled.nav`
     justify-content: center;
     align-items: center;
     gap: 32px;
+    font-size: 100px;
 `
 
 export const Link = styled.a`
     text-decoration: none;
     color: white;
+    font-size: 20px;
     /* display: inline-block; */
     position: relative;
+   
 
     &::after {
         content: '';

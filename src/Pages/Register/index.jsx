@@ -10,26 +10,14 @@ const Register = () => {
           <Title>Create your account</Title>
 
           <DivInputs>
-            <Input
-              placeholder="name"
-            />
-            <Input
-              placeholder="e-mail"
-            />
-            <Input
-              placeholder="cpf"
-            />
-            <Input
-              placeholder="password"
-              type="password"
-              />
-            <Input
-              placeholder="confirm password"
-              type="password"
-            />
+            <Input placeholder="name" />
+            <Input placeholder="e-mail" />
+            <Input placeholder="cpf" />
+            <Input placeholder="password" type="password" />
+            <Input placeholder="confirm password" type="password" />
           </DivInputs>
 
-          <Button>Create</Button>
+          <Button type="submit" value="Sign in" />
         </DivForms>
       </DivFilter>
 

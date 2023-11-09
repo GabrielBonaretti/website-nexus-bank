@@ -36,7 +36,7 @@ export const DivContent = styled.div`
     gap: 3.5rem;
 `
 
-export const DivForm = styled.div`
+export const DivForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 3rem;
@@ -59,7 +59,7 @@ export const Div = styled.div`
     gap: 1rem;
 `
 
-export const Button = styled.div`
+export const Button = styled.input`
   display: flex;
   padding: 12px;
 
@@ -67,8 +67,9 @@ export const Button = styled.div`
   align-items: center;
   gap: 5px;
   border-radius: 8px;
+  border: none;
 
-  background: ${props => props.$primary ? "#DBB22F" : "transparent"};
+  background: #DBB22F;
   color: #1a1e1c;
 
   &:hover {

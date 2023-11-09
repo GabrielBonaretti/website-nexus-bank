@@ -7,14 +7,15 @@ import ButtonHeader from "../../components/Button";
 
 // react
 import { useState } from "react";
+import User from "../../components/User";
 
-const Header = () => {
-  const [teste, setTeste] = useState(false)
+const Header = ({ navbar=true }) => {
+  const [teste, setTeste] = useState(true)
   return (
     <HeaderDiv>
         <img src="../../src/assets/images/teste.svg" alt="logo"/>
 
-        <Navbar/>
+        {navbar && <Navbar/> }
 
         {teste ? (
           <DivButtons>
@@ -22,9 +23,7 @@ const Header = () => {
               <ButtonHeader  to="/register" isPrimary={true} text="Register"/>
           </DivButtons>
         ) : (
-          <div>
-            
-          </div>
+          <User/>          
         )}
     </HeaderDiv>
   )

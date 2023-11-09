@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import Register from "./Pages/Register";
 import Login from "./Pages/Login";
+import ProfilePage from "./Pages/ProfilePage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />f
           <Route path="/register" element={<Register />} />f
           <Route path="/login" element={<Login />} />f
+          <Route path="/profile" element={<ProfilePage />} />f
         </Routes>
       </BrowserRouter>
     </>

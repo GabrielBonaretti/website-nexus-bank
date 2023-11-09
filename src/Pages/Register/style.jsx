@@ -18,7 +18,7 @@ export const DivFilter = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
 `;
 
-export const DivForms = styled.div`
+export const DivForms = styled.form`
   animation: smooth-climb 0.7s ease-in-out;
   background-color: #1a1e1c;
 
@@ -65,7 +65,7 @@ export const Input = styled.input`
   padding: 10px;
 `;
 
-export const Button = styled.div`
+export const Button = styled.input`
   display: flex;
   width: 45%;
   padding: 12px;
@@ -74,6 +74,7 @@ export const Button = styled.div`
   align-items: center;
   gap: 5px;
   border-radius: 8px;
+  border: none;
 
   background: #dbb22f;
 

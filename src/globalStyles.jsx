@@ -14,7 +14,11 @@ export const GlobalStyle = createGlobalStyle`
         color: white;
         user-select: none;
     }
-  
+    
+    p {
+        margin: 0
+    }
+    
     @keyframes smooth-climb {
         from {
             transform: translateY(5%);

@@ -30,11 +30,11 @@ const Login = () => {
             <Title>Login</Title>
 
             <Div>
-              <Input placeholder="cpf" />
+              <Input placeholder="cpf"/>
               <Input placeholder="password" type="password" />
             </Div>
 
-            <Button $primary>sign in</Button>
+            <Button type="submit" value="Sign in" />
           </DivForm>
         </DivContent>
       </DivLeft>
