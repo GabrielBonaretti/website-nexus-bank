@@ -1,4 +1,5 @@
 // styled components
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderDiv = styled.div`
@@ -14,4 +15,8 @@ export const HeaderDiv = styled.div`
 export const DivButtons = styled.div`
     display: flex;
     gap: 20px;
+`
+
+export const LinkStyled = styled(Link)`
+    color: #FFF;
 `

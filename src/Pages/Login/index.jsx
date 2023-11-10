@@ -30,7 +30,7 @@ const Login = () => {
             <Title>Login</Title>
 
             <Div>
-              <Input placeholder="cpf"/>
+              <Input placeholder="cpf" />
               <Input placeholder="password" type="password" />
             </Div>
 

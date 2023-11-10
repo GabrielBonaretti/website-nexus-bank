@@ -9,12 +9,14 @@ import Header from "../../layout/Header";
 import Faq from "../../layout/Faq";
 import Footer from "../../layout/Footer";
 
+
 const LandingPage = () => {
 
   return (
     <DivBackground>
       <Header />
-      <Container
+
+      {/* <Container
         textTitle="Discover the Perfect Credit Card for You"
         textContent="Discover the power of our secure and rewarding credit cards. Explore our range of credit cards and take control of your finances today."
         textButton="Get Started"
@@ -41,7 +43,7 @@ const LandingPage = () => {
         textButton="Get it on google play"
         img4={true}
       />
-      <Footer />
+      <Footer /> */}
     </DivBackground>
   );
 };
