@@ -14,15 +14,28 @@ export const DivFeatures = styled.div`
 export const DivExemples = styled.div`
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 32px;
   width: 100%;
 `;
 
 export const Title = styled.h2`
   margin: 0;
-  font-size: 40px;
+  font-size: 3.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+
+  @media (max-width: 620px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 2rem;
+  }
 `;

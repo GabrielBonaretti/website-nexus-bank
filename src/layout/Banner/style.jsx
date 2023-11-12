@@ -7,9 +7,15 @@ export const DivContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   animation: smooth-climb 0.7s ease-in-out;
   user-select: none;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    height: auto;
+    gap: 50px;
+
+  }
 `;
 
 export const DivContent = styled.div`
@@ -18,32 +24,53 @@ export const DivContent = styled.div`
   align-items: flex-start;
   gap: 30px;
   width: 45%;
+  
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`
   color: #fff;
-  font-size: 56px;
+  font-size: 3.5rem;
+  /* font-size: 56px; */
   font-weight: 700;
   line-height: 64px;
   letter-spacing: -1.4px;
   margin: 0;
+
+  @media (max-width: 620px) {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 550px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 2.3rem;
+  }
 `;
 
 export const ContentText = styled.p`
   color: #adb2b1;
-  font-size: 18px;
+  font-size: 1.125rem;
+  /* font-size: 18px; */
   font-weight: 400;
   line-height: 24px;
   margin: 0;
+
 `;
 
 export const Image = styled.img`
   -webkit-user-drag: none;
   user-select: none;
-  animation: ajust 0.5s ease-in-out;
-
+  ${props => props.$animation && "animation: ajust 0.5s ease-in-out;"}
+  
+  
   &:hover {
-    animation: shake 0.5s ease-in-out 1 both;
+    ${props => props.$animation && "animation: shake 0.5s ease-in-out 1 both;"}
+    
   }
 
   @keyframes shake {
@@ -69,6 +96,11 @@ export const Image = styled.img`
       transform: rotateZ(0deg);
     }
   }
+
+  @media (max-width: 550px) {
+    width: 80vw;
+  }
+
 `;
 
 export const DivCards = styled.div`
@@ -76,6 +108,10 @@ export const DivCards = styled.div`
   max-height: 100%;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
 `;
 
 const ImageConfig = styled.img`
@@ -90,9 +126,9 @@ export const CardGold = styled(ImageConfig)`
 
   @keyframes animation-card-halfblack {
     from {
-      transform: translate(0%, 50%);
+      transform: translate(0%, 28%);
     } to {
-      transform: translate(10%, 35%) rotateX(45deg) rotateY(20deg)
+      transform: translate(10%, 13%) rotateX(45deg) rotateY(20deg)
         rotateZ(60deg);
     }
   }
@@ -104,9 +140,9 @@ export const CardBlack = styled(ImageConfig)`
 
   @keyframes animation-card-black {
     from {
-      transform: translate(0%, -51.5%);
+      transform: translate(0%, -74.5%);
     } to {
-      transform: translate(25%, -71.5%) rotateX(45deg) rotateY(25deg)
+      transform: translate(25%, -94.5%) rotateX(45deg) rotateY(25deg)
         rotateZ(75deg);
     }
   }
@@ -118,9 +154,9 @@ export const CardWhite = styled(ImageConfig)`
 
   @keyframes animation-card-white {
     from {
-      transform: translate(0%, -152.7%);
+      transform: translate(0%, -175.7%);
     } to {
-      transform: translate(0%, -152.7%) rotateX(50deg) rotateY(15deg)
+      transform: translate(0%, -175.7%) rotateX(50deg) rotateY(15deg)
         rotateZ(53deg);
     }
   }

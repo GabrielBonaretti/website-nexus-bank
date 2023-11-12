@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const NavStyled = styled.nav`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: ${props => props.$menuHamburger ? "flex-end" : "center"};
+    flex-direction: ${props => props.$menuHamburger ? "column" : "row"};
     gap: 32px;
     font-size: 100px;
 `

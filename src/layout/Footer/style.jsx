@@ -17,6 +17,10 @@ export const DivContent = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 80px;
+  
+  @media (max-width: 1110px) {
+    gap: 50px;
+  }
 `;
 
 export const DivPartOne = styled.div`
@@ -24,6 +28,11 @@ export const DivPartOne = styled.div`
   width: 100%;
   align-items: flex-start;
   justify-content: space-between;
+
+  
+  @media (max-width: 1110px) {
+    justify-content: center;
+  }
 `;
 
 export const DivLogo = styled.div`
@@ -32,19 +41,35 @@ export const DivLogo = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+
+  @media (max-width: 1110px) {
+    align-items: center;
+    width: fit-content;
+    text-align: center;
+  }
 `;
 
 export const DivColumns = styled.div`
   display: flex;
   width: 70%;
   justify-content: space-between;
-  gap: 32px;
+  gap: 5%;
+
+
+  @media (max-width: 1110px) {
+    display: none;
+  }
 `;
 
 export const DivPartTwo = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  @media (max-width: 1110px) {
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const TextLogo = styled.p`

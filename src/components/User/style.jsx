@@ -17,7 +17,7 @@ export const DivContent = styled.div`
 `
 
 export const Name = styled.p`
-    font-size: 18px;
+    font-size: 17px;
     transform: translateX(10px);
 `
 

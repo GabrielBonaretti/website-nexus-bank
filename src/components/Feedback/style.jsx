@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BackgroundFeedback = styled.div`
   display: flex;
-  width: 30%;
+  width: 360px;
   padding: 48px 24px;
   flex-direction: column;
   align-items: flex-start;
@@ -11,6 +11,10 @@ export const BackgroundFeedback = styled.div`
   border-radius: 32px;
   background: rgba(170, 119, 28, 0.1);
   backdrop-filter: blur(8px);
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const DivIcon = styled.div`
@@ -25,7 +29,7 @@ export const DivIcon = styled.div`
 
 export const TextBrief = styled.p`
   align-self: stretch;
-  font-size: 16px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;

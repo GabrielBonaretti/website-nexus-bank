@@ -15,7 +15,6 @@ import {
   CardGold,
   CardWhite,
   DivCards,
-  Image2,
 } from "./style";
 
 const Container = ({
@@ -41,7 +40,7 @@ const Container = ({
 
   return (
     <DivContainer>
-      {img3 && <Image src="src\assets\images\card2.svg" alt="card" />}
+      {img3 && <Image $animation src="src\assets\images\card2.svg" alt="card" />}
 
       <DivContent>
         <Title>{textTitle}</Title>
@@ -49,7 +48,7 @@ const Container = ({
         <Button isPrimary={true} text={textButton} />
       </DivContent>
 
-      {img1 && <Image src="src\assets\images\card3.svg" alt="card" />}
+      {img1 && <Image $animation src="src\assets\images\card3.svg" alt="card" />}
 
       {img2 && animation && (
         <DivCards>
@@ -60,7 +59,7 @@ const Container = ({
       )}
 
       {img4 && animation && (
-        <img src="src\assets\images\Phone.svg" alt="card" />
+        <Image src="src\assets\images\Phone.svg" alt="card" />
       )}
     </DivContainer>
   );

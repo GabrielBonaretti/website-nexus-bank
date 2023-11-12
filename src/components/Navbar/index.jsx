@@ -1,16 +1,28 @@
 // Styled components
-import { NavStyled, Link } from "./style"
+import { NavStyled, Link } from "./style";
 
-const Navbar = () => {
+const Navbar = ({ menuHamburger = false }) => {
   return (
-    <NavStyled>
-        <Link href="#">Why Us</Link>
-        <Link href="#">Services</Link>
-        <Link href="#">Our Process</Link>
-        <Link href="#">Payments</Link>
-        <Link href="#">FAQs</Link>
-    </NavStyled>
-  )
-}
+    <>
+      {menuHamburger ? (
+        <NavStyled $menuHamburger>
+          <Link href="#">Why Us</Link>
+          <Link href="#">Services</Link>
+          <Link href="#">Our Process</Link>
+          <Link href="#">Payments</Link>
+          <Link href="#">FAQs</Link>
+        </NavStyled>
+      ) : (
+        <NavStyled>
+          <Link href="#">Why Us</Link>
+          <Link href="#">Services</Link>
+          <Link href="#">Our Process</Link>
+          <Link href="#">Payments</Link>
+          <Link href="#">FAQs</Link>
+        </NavStyled>
+      )}
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;

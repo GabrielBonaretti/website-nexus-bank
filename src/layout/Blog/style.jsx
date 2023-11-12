@@ -5,6 +5,7 @@ export const ContainerBlog = styled.div`
   display: flex;
   width: 80%;
   justify-content: center;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 32px;
 `;
