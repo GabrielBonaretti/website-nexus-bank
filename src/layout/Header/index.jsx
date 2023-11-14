@@ -35,18 +35,10 @@ const Header = ({ navbar = true, pageProfile = false }) => {
 
       {navbar && widthWindow > 1200 && <Navbar />}
 
-      {widthWindow > 700 && (
+      {widthWindow > 700 && !pageProfile &&(
         <>
           {logged ? (
-            <>
-              {pageProfile ? (
-                <LinkStyled to="/" onClick={(e) => setLogged(false)}>
-                  <FontAwesomeIcon icon={faArrowRightFromBracket} size="2xl" />
-                </LinkStyled>
-              ) : (
-                <User />
-              )}
-            </>
+            <User />
           ) : (
             <DivButtons>
               <ButtonHeader to="/login" text="Log in" />
@@ -56,7 +48,7 @@ const Header = ({ navbar = true, pageProfile = false }) => {
         </>
       )}
 
-      {!(widthWindow > 700) && (
+      {!(widthWindow > 700) && !pageProfile && (
         <Menu right={true}>
           <Navbar menuHamburger={true} />
           {logged ? (
@@ -68,6 +60,12 @@ const Header = ({ navbar = true, pageProfile = false }) => {
             </DivButtons>
           )}
         </Menu>
+      )}
+
+      {pageProfile && (
+        <LinkStyled to="/" onClick={(e) => setLogged(false)}>
+          <FontAwesomeIcon icon={faArrowRightFromBracket} size="2xl" />
+        </LinkStyled>
       )}
     </HeaderDiv>
   );

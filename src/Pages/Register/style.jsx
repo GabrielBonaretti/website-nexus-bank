@@ -22,16 +22,21 @@ export const DivForms = styled.form`
   animation: smooth-climb 0.7s ease-in-out;
   background-color: #1a1e1c;
 
-  width: 35%;
-  /* height: 70%; */
+  width: 500px;
   padding: 3% 0px;
   border-radius: 30px;
-
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 65px; */
+  padding: 50px;
+  gap: 30px;
+  
+  @media (max-width: 650px) {
+    padding: 30px;
+    width: 80%;
+  }
 `;
 
 export const Title = styled.p`
@@ -42,20 +47,26 @@ export const Title = styled.p`
   font-weight: 600;
   line-height: 100%;
   margin: 0px;
+
+  @media (max-width: 650px) {
+    font-size: 25px;
+  }
 `;
 export const DivInputs = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   align-self: stretch;
   
-  width: 75%;
+  width: 100%;
   gap: 20px;
-  margin-bottom: 65px;
-  margin-top: 40px;
+  margin: 0;
 
-  margin-left: auto;
-  margin-right: auto;
+  @media (max-width: 650px) {
+    margin: 0;
+    font-size: 25px;
+  }
 `;
 
 export const Input = styled.input`

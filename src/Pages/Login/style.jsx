@@ -6,6 +6,10 @@ export const DivBackground = styled.div`
     display: grid;
     grid-template-columns: 1.5fr 1fr;   
     animation: smooth-appear 0.7s ease-in-out;
+    
+    @media (max-width: 1100px) {
+        grid-template-columns: 1fr;   
+    }
 `
 
 export const DivImage = styled.div`
@@ -14,6 +18,9 @@ export const DivImage = styled.div`
     background-size: cover;
     width: 100%;
 
+    @media (max-width: 1100px) {
+        display: none;
+    }
 `
 
 export const DivFilter = styled.div`
@@ -25,7 +32,7 @@ export const DivFilter = styled.div`
 export const DivLeft = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 `
 
 export const DivContent = styled.div`
@@ -33,7 +40,7 @@ export const DivContent = styled.div`
     height: 50%;
     display: flex;
     flex-direction: column;
-    gap: 3.5rem;
+    gap: 3.5rem;    
 `
 
 export const DivForm = styled.form`
@@ -43,7 +50,7 @@ export const DivForm = styled.form`
 `
 
 export const Logo = styled.img`
-    width: 40%;
+    width: 150px;
     height: auto;
 `
 
