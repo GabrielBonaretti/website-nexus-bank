@@ -41,13 +41,15 @@ export const Title = styled.p`
 
 export const Icon = styled.img`
   width: 120px;
-  height: auto;
+  height: 120px;
 
+  object-fit: cover;
   border-radius: 50%;
   border: 3px solid #fff;
 
   @media (max-width: 500px) {
     width: 90px;
+    height: 90px;
   }
 `;
 

@@ -1,29 +1,36 @@
 import { useState } from "react";
 import { Div, InputStyled, Text } from "./style";
 
-const Input = ({ placeholder, type = "text" }) => {
-  const [teste, setTeste] = useState(false);
-  const [text, setText] = useState("");
+
+const Input = ({ onChange, content, placeholder, type = "text" }) => {
+  const [focus, setFocus] = useState(false);
+
   return (
     <Div>
-      {teste ? <Text $focus>{placeholder}</Text> : <Text $blur>{placeholder}</Text>}
+      {focus ? (
+        <Text $focus>{placeholder}</Text>
+      ) : (
+        <Text $blur>{placeholder}</Text>
+      )}
 
-      {text.length > 0 ? (
+      {String(content).length > 0 ? (
         <InputStyled
           type={type}
           name={placeholder}
+          value={content}
           $focus
-          onFocus={(e) => setTeste(true)}
-          onChange={(e) => setText(e.target.value)}
+          onFocus={(e) => setFocus(true)}
+          onChange={onChange}
           required
         />
       ) : (
         <InputStyled
           type={type}
           name={placeholder}
-          onFocus={(e) => setTeste(true)}
-          onBlur={(e) => setTeste(false)}
-          onChange={(e) => setText(e.target.value)}
+          value={content}
+          onFocus={(e) => setFocus(true)}
+          onBlur={(e) => setFocus(false)}
+          onChange={onChange}
           required
         />
       )}

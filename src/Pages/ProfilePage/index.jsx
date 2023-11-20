@@ -1,24 +1,23 @@
 // styled components
-import { DivBackground } from "../LandingPage/style"
+import { DivBackground } from "../LandingPage/style";
 
 // layout
-import Header from "../../layout/Header"
-import Footer from "../../layout/Footer"
-import ContentProfile from "../../layout/ContentProfile"
+import Header from "../../layout/Header";
+import Footer from "../../layout/Footer";
+import ContentProfile from "../../layout/ContentProfile";
+
 
 const ProfilePage = () => {
-    return (
-        <DivBackground>
-            <Header
-                navbar={false}
-                pageProfile={true}
-            />
+  return (
+    <DivBackground>
+      <Header navbar={false} pageProfile={true} />
 
-            <ContentProfile/>
+      <ContentProfile />
 
-            <Footer />
-        </DivBackground>
-    )
-}
+      <Footer />
+      
+    </DivBackground>
+  );
+};
 
-export default ProfilePage
+export default ProfilePage;

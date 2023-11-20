@@ -26,40 +26,17 @@ import FormAccount from "../FormAccount";
 import FormUser from "../FormUser";
 import FormAdress from "../FormAdress";
 
-// toastify
-import { notify } from "../../services/notify";
-
 const ContentProfile = () => {
-  const [urlImage, setUrlImage] = useState();
+  const [urlImage, setUrlImage] = useState()
 
   const auth = useAuthStore((state) => state.accessToken);
-  const clearTokens = useAuthStore((state) => state.clearTokens);
-
-  const hadleUploadPic = (event) => {
-    const header = {
-      Authorization: "Bearer " + auth,
-    };
-
-    const selectedFile = event.target.files[0];
-    const formData = new FormData();
-    formData.append("url_image", selectedFile);
-
-    api
-      .patch("/api/user/", formData, { headers: header })
-      .then((response) => {
-        setUrlImage(response.data.url_image);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   useEffect(() => {
-    const header = {
-      Authorization: "Bearer " + auth,
-    };
-
     if (auth) {
+      const header = {
+        Authorization: "Bearer " + auth,
+      };
+
       api
         .get("/api/user/", { headers: header })
         .then((response) => {
@@ -69,12 +46,7 @@ const ContentProfile = () => {
             setUrlImage(`src/assets/images/user-solid.svg`);
           }
         })
-        .catch((error) => {
-          notify({ content: "Login time expired, log in again to see your data", type: 1 });
-          if (error.response.statusText == "Unauthorized") {
-            clearTokens();
-          }
-        });
+        .catch((error) => console.log(error));
     }
   }, [auth]);
 
@@ -87,27 +59,21 @@ const ContentProfile = () => {
           <label htmlFor="file">
             <IconEdit icon={faPenToSquare} size="2xl" />
           </label>
-          <Input
-            name="myFile"
-            type="file"
-            id="file"
-            accept=".jpg, .jpeg, .png"
-            onChange={hadleUploadPic}
-          />
+          <Input name="myFile" type="file" id="file" />
         </div>
       </DivHeader>
 
       <Line />
 
-      <FormAccount />
+      <FormAccount/>
 
       <Line />
 
-      <FormUser />
+      <FormUser/>
 
       <Line />
 
-      <FormAdress />
+      <FormAdress/>
     </DivBackground>
   );
 };

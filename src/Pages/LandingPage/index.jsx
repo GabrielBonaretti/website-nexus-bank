@@ -11,7 +11,6 @@ import Footer from "../../layout/Footer";
 
 
 const LandingPage = () => {
-
   return (
     <DivBackground>
       <Header />

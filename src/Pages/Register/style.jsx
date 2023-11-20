@@ -97,3 +97,10 @@ export const Button = styled.input`
     background: #a9900d;
   }
 `;
+
+
+export const ImgLogo = styled.img`
+  position: absolute;
+  left: 25px;
+  top: 25px;
+`
