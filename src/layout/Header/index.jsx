@@ -29,7 +29,7 @@ import { api } from "../../services/api";
 import { notify } from "../../services/notify";
 
 const Header = ({ navbar = true, pageProfile = false }) => {
-  const [widthWindow, setWidthWindow] = useState();
+  const [widthWindow, setWidthWindow] = useState(window.innerWidth);
   const [name, setName] = useState();
   const [balance, setBalance] = useState();
   const [urlImage, setUrlImage] = useState("");
@@ -55,8 +55,11 @@ const Header = ({ navbar = true, pageProfile = false }) => {
           }
         })
         .catch((error) => {
-          console.log(error)
-          notify({ content: "Login time expired, log in again to see your data", type: 1 });
+          console.log(error);
+          notify({
+            content: "Login time expired, log in again to see your data",
+            type: 1,
+          });
           if (error.response.statusText == "Unauthorized") {
             clearTokens();
           }
@@ -70,7 +73,9 @@ const Header = ({ navbar = true, pageProfile = false }) => {
   }, [auth]);
 
   useEffect(() => {
-    setWidthWindow(window.innerWidth);
+    addEventListener("resize", (e) => {
+      setWidthWindow(window.innerWidth);
+    });
   }, [window.innerWidth]);
 
   return (

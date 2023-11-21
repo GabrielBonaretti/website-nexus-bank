@@ -28,6 +28,7 @@ import FormAdress from "../FormAdress";
 
 // toastify
 import { notify } from "../../services/notify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ContentProfile = () => {
   const [urlImage, setUrlImage] = useState();
@@ -85,7 +86,8 @@ const ContentProfile = () => {
         <div>
           <Icon src={urlImage} alt="icon" />
           <label htmlFor="file">
-            <IconEdit icon={faPenToSquare} size="2xl" />
+            <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+            {/* <IconEdit icon={faPenToSquare} size="2xl" /> */}
           </label>
           <Input
             name="myFile"
