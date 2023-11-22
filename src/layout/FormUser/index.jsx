@@ -66,7 +66,9 @@ const FormUser = () => {
     await api
       .patch("/api/user/", requestData, { headers: header })
       .then((response) => {
-        console.log(response);
+        if (response.status === 200) {
+          notify({ content: "Content updated successfully", type: 2 });
+        }
       })
       .catch((error) => {
         const errors = Object.values(error.response.data);
@@ -87,7 +89,9 @@ const FormUser = () => {
           setCpf(response.data.cpf);
           setEmail(response.data.email);
           setName(response.data.name);
-          setDeclaredSalary(`R$ ${Number(response.data.declared_salary).toFixed(2)}`);
+          setDeclaredSalary(
+            `R$ ${Number(response.data.declared_salary).toFixed(2)}`
+          );
         })
         .catch((error) => console.log(error));
     }
@@ -143,7 +147,6 @@ const FormUser = () => {
           />
         )}
       </DivButtons>
-      
     </DivForm>
   );
 };

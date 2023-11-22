@@ -26,6 +26,7 @@ import { api } from "../../services/api";
 
 // notify
 import { notify } from "../../services/notify";
+import axios from "axios";
 
 const FormAdress = () => {
   const [enableForm, setEnableForm] = useState(false);
@@ -35,7 +36,6 @@ const FormAdress = () => {
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [number, setNumber] = useState("");
-  const [state, setState] = useState("");
   const [street, setStreet] = useState("");
   const [uf, setUf] = useState("");
 
@@ -61,7 +61,6 @@ const FormAdress = () => {
       city: city,
       neighborhood: neighborhood,
       number: number,
-      state: state,
       street: street,
       uf: uf,
     };
@@ -69,10 +68,9 @@ const FormAdress = () => {
     await api
       .put("/api/adress/1/search/", requestData, { headers: header })
       .then((response) => {
-        console.log(response);
+        notify({ content: "Content updated successfully", type: 2 });
       })
       .catch((error) => {
-        console.log(error)
         const errors = Object.values(error.response.data);
         for (const errorString of errors) {
           notify({ content: errorString[0], type: 1 });
@@ -92,8 +90,21 @@ const FormAdress = () => {
           setCity(response.data.city);
           setNeighborhood(response.data.neighborhood);
           setNumber(response.data.number);
-          setState(response.data.state);
           setStreet(response.data.street);
+          setUf(response.data.uf);
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+
+  const handleCep = async () => {
+    if (cep.length == 8) {
+      await axios
+        .get(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((response) => {
+          setCity(response.data.localidade);
+          setNeighborhood(response.data.bairro);
+          setStreet(response.data.logradouro);
           setUf(response.data.uf);
         })
         .catch((error) => console.log(error));
@@ -103,6 +114,10 @@ const FormAdress = () => {
   useEffect(() => {
     handleGetContent();
   }, [auth]);
+
+  useEffect(() => {
+    handleCep();
+  }, [cep]);
 
   return (
     <DivForm>
@@ -136,12 +151,6 @@ const FormAdress = () => {
           enable={enableForm}
           value={city}
           onChange={(e) => setCity(e.target.value)}
-        />
-        <InputProfile
-          text="State"
-          enable={enableForm}
-          value={state}
-          onChange={(e) => setState(e.target.value)}
         />
         <InputProfile
           text="UF"

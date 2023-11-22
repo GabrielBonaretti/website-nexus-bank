@@ -15,6 +15,7 @@ import { formatCPF } from "../../services/formatCPF";
 import { Link } from "react-router-dom";
 import { notify } from "../../services/notify";
 
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -23,6 +24,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
@@ -38,6 +41,7 @@ const Register = () => {
         })
         .then((response) => {
           notify({ content: "Your account has been registered!", type: 2 });
+          navigate("/login");
         })
         .catch((error) => {
 

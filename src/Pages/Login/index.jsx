@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault(); // Prevents the default form submission behavior
 
     await api
-      .post("/api/token/", {
+      .post("/api/login /", {
         cpf: cpf,
         password: password,
       })
@@ -41,9 +41,7 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         const errors = Object.values(error.response.data);
-        console.log(errors);
         for (const errorString of errors) {
           if (errorString[0].length > 1) {
             notify({ content: errorString[0], type: 1 });
