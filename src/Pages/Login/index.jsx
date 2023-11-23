@@ -32,7 +32,7 @@ const Login = () => {
     e.preventDefault(); // Prevents the default form submission behavior
 
     await api
-      .post("/api/login /", {
+      .post("/api/login/", {
         cpf: cpf,
         password: password,
       })
