@@ -28,7 +28,7 @@ const FormAccount = () => {
       };
 
       api
-        .get("/api/account/search/", { headers: header })
+        .get("/api/account/me/", { headers: header })
         .then((response) => {
           setAgency(response.data.agency);
           setBalance(response.data.balance);

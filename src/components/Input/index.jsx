@@ -7,11 +7,7 @@ const Input = ({ onChange, content, placeholder, type = "text" }) => {
 
   return (
     <Div>
-      {focus ? (
-        <Text $focus>{placeholder}</Text>
-      ) : (
-        <Text $blur>{placeholder}</Text>
-      )}
+      <Text $focus={focus} $blur={!focus} >{placeholder}</Text>
 
       {String(content).length > 0 ? (
         <InputStyled

@@ -37,13 +37,14 @@ const Header = ({ navbar = true, pageProfile = false }) => {
   const auth = useAuthStore((state) => state.accessToken);
   const clearTokens = useAuthStore((state) => state.clearTokens);
 
-  useEffect(() => {
-    if (auth != "" && auth != null && !pageProfile) {
-      const header = {
-        Authorization: "Bearer " + auth,
-      };
+  const header = {
+    Authorization: "Bearer " + auth,
+  };
 
-      api
+  const fetchData = async () => {
+    if (auth != "" && auth != null && !pageProfile) {
+
+      await api
         .get("/api/user/", { headers: header })
         .then((response) => {
           setName(response.data.name);
@@ -64,13 +65,25 @@ const Header = ({ navbar = true, pageProfile = false }) => {
             clearTokens();
           }
         });
+    }
+  }
 
-      api
-        .get("/api/account/search/", { headers: header })
-        .then((response) => setBalance(response.data.balance))
+  const fetchBalance = async () => {
+    if (auth != "" && auth != null && !pageProfile) {
+
+      await api
+        .get("/api/account/me/", { headers: header })
+        .then((response) => {
+          setBalance(response.data.balance)
+        })
         .catch((error) => console.log(error));
     }
-  }, [auth]);
+  }
+
+  useEffect(() => {
+    fetchData()
+    fetchBalance()
+  }, []);
 
   useEffect(() => {
     addEventListener("resize", (e) => {
@@ -89,7 +102,7 @@ const Header = ({ navbar = true, pageProfile = false }) => {
       {widthWindow > 700 && !pageProfile && (
         <>
           {auth ? (
-            <User name={name} balance={balance} imgProfile={urlImage} />
+            <User name={name} balance={parseFloat(balance).toFixed(2)} imgProfile={urlImage} />
           ) : (
             <DivButtons>
               <ButtonHeader to="/login" text="Log in" />

@@ -1,15 +1,9 @@
 // styled components
 import { ButtonStyled } from "./style";
 
-const Button = ({ to="/", isPrimary, text }) => {
+const Button = ({ to = "/", isPrimary, text }) => {
   return (
-    <>
-      {isPrimary ? (
-        <ButtonStyled to={to} $primary="true" >{text}</ButtonStyled>
-      ) : (
-        <ButtonStyled to={to} >{text}</ButtonStyled>
-      )}
-    </>
+    <ButtonStyled to={to} $primary={isPrimary} >{text}</ButtonStyled>
   )
 }
 

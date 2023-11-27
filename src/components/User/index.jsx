@@ -30,24 +30,12 @@ const User = ({ name, balance, imgProfile }) => {
         <Line />
 
         <DivBalance>
-          {balanceVisible ? (
-            <>
-              <Balance $visible>R$ {balance}</Balance>
+          <Balance $visible={balanceVisible}>R$ {balance}</Balance>
 
-              <Icon
-                icon={faEye}
-                onClick={(e) => setBalanceVisible(false)}
-              />
-            </>
-          ) : (
-            <>
-              <Balance>R$ {balance}</Balance>
-              <Icon
-                icon={faEyeSlash}
-                onClick={(e) => setBalanceVisible(true)}
-              />
-            </>
-          )}
+          <Icon
+            icon={balanceVisible ? faEye : faEyeSlash}
+            onClick={(e) => setBalanceVisible(!balanceVisible)}
+          />
         </DivBalance>
       </DivContent>
 

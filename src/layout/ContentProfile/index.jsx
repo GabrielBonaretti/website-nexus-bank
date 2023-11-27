@@ -71,8 +71,9 @@ const ContentProfile = () => {
           }
         })
         .catch((error) => {
-          notify({ content: "Login time expired, log in again to see your data", type: 1 });
+          console.log(error)
           if (error.response.statusText == "Unauthorized") {
+            notify({ content: "Login time expired, log in again to see your data", type: 1 });
             clearTokens();
           }
         });
@@ -87,7 +88,6 @@ const ContentProfile = () => {
           <Icon src={urlImage} alt="icon" />
           <label htmlFor="file">
             <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
-            {/* <IconEdit icon={faPenToSquare} size="2xl" /> */}
           </label>
           <Input
             name="myFile"

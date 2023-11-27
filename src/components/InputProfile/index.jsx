@@ -6,22 +6,13 @@ const InputProfile = ({ text, value, enable, onChange }) => {
     <DivInput>
       <LabelText>{text}</LabelText>
 
-      {enable ? (
-        <InputStyled
-          type="text"
-          value={value}
-          placeholder={text}
-          onChange={onChange}
-        />
-      ) : (
-        <InputStyled
-          type="text"
-          value={value}
-          placeholder={text}
-          onChange={onChange}
-          disabled
-        />
-      )}
+      <InputStyled
+        type="text"
+        value={value}
+        placeholder={text}
+        onChange={onChange}
+        disabled={!enable}
+      />
     </DivInput>
   );
 };
