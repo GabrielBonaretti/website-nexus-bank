@@ -1,29 +1,36 @@
-// components
-import PeopleFeedback from "../PeopleFeedback"
+// Importing the PeopleFeedback component from the "../PeopleFeedback" module
+import PeopleFeedback from "../PeopleFeedback";
 
-// font awesome
+// Importing the faQuoteLeft icon from the font-awesome library
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// styleds components
+// Importing styled components for the component's structure
 import { BackgroundFeedback, DivIcon, TextBrief } from "./style";
 
-const Feedback = ({textBrief, srcImage, name, role}) => {
+// Definition of the Feedback functional component
+const Feedback = ({ textBrief, srcImage, name, role }) => {
+  // Rendering the BackgroundFeedback component, representing the overall background for the feedback section
   return (
     <BackgroundFeedback>
-        <DivIcon>
-          <FontAwesomeIcon icon={faQuoteLeft} />
-        </DivIcon>
+      {/* DivIcon: Container for the quote icon */}
+      <DivIcon>
+        {/* FontAwesomeIcon: Displaying the quote icon */}
+        <FontAwesomeIcon icon={faQuoteLeft} />
+      </DivIcon>
 
-        <TextBrief>{textBrief}</TextBrief>
+      {/* TextBrief: Displaying a brief text excerpt of the feedback */}
+      <TextBrief>{textBrief}</TextBrief>
 
-        <PeopleFeedback
-          srcImage={srcImage}
-          name={name}
-          role={role}
-        />
+      {/* PeopleFeedback: Displaying details about the person providing the feedback (image, name, role) */}
+      <PeopleFeedback
+        srcImage={srcImage}
+        name={name}
+        role={role}
+      />
     </BackgroundFeedback>
-  )
+  );
 }
 
-export default Feedback
+// Exporting the Feedback component as the default export
+export default Feedback;

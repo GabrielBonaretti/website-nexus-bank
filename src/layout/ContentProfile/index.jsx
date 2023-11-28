@@ -1,7 +1,7 @@
-// react
+// Importing React's useState and useEffect hooks
 import { useState, useEffect } from "react";
 
-// styled components
+// Importing styled components for the ContentProfile component
 import {
   DivBackground,
   DivHeader,
@@ -12,31 +12,35 @@ import {
   Input,
 } from "./style";
 
-// font awesome
+// Importing FontAwesome icon for editing
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-// zustend
+// Importing Zustand hook for managing authentication state
 import { useAuthStore } from "../../stores/authStore/authStore";
 
-// axios
+// Importing Axios for making API requests
 import { api } from "../../services/api";
 
-// layout
+// Importing layout components
 import FormAccount from "../FormAccount";
 import FormUser from "../FormUser";
 import FormAdress from "../FormAdress";
 
-// toastify
+// Importing notification service
 import { notify } from "../../services/notify";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// Functional component for displaying user profile content
 const ContentProfile = () => {
+  // State for storing the user's profile image URL
   const [urlImage, setUrlImage] = useState();
 
+  // Zustand hook to access authentication information
   const auth = useAuthStore((state) => state.accessToken);
   const clearTokens = useAuthStore((state) => state.clearTokens);
 
-  const hadleUploadPic = (event) => {
+  // Handling the file upload for the user's profile image
+  const handleUploadPic = (event) => {
     const header = {
       Authorization: "Bearer " + auth,
     };
@@ -55,6 +59,7 @@ const ContentProfile = () => {
       });
   };
 
+  // Fetching user data and setting the profile image URL on component mount
   useEffect(() => {
     const header = {
       Authorization: "Bearer " + auth,
@@ -71,8 +76,8 @@ const ContentProfile = () => {
           }
         })
         .catch((error) => {
-          console.log(error)
-          if (error.response.statusText == "Unauthorized") {
+          console.log(error);
+          if (error.response.statusText === "Unauthorized") {
             notify({ content: "Login time expired, log in again to see your data", type: 1 });
             clearTokens();
           }
@@ -80,38 +85,55 @@ const ContentProfile = () => {
     }
   }, [auth]);
 
+  // Rendering a styled background div for the user's profile content
   return (
     <DivBackground>
+      {/* Creating a div container for the profile header */}
       <DivHeader>
+        {/* Displaying the profile title */}
         <Title>Profile: </Title>
+        
+        {/* Creating a div container for the profile icon, edit icon, and file input */}
         <div>
+          {/* Displaying the user's profile image */}
           <Icon src={urlImage} alt="icon" />
+          
+          {/* Label for triggering file input when clicking the edit icon */}
           <label htmlFor="file">
             <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
           </label>
+          
+          {/* Hidden file input for uploading profile image */}
           <Input
             name="myFile"
             type="file"
             id="file"
             accept=".jpg, .jpeg, .png"
-            onChange={hadleUploadPic}
+            onChange={handleUploadPic}
           />
         </div>
       </DivHeader>
 
+      {/* Displaying a line for visual separation */}
       <Line />
 
+      {/* Displaying the FormAccount component */}
       <FormAccount />
 
+      {/* Displaying a line for visual separation */}
       <Line />
 
+      {/* Displaying the FormUser component */}
       <FormUser />
 
+      {/* Displaying a line for visual separation */}
       <Line />
 
+      {/* Displaying the FormAdress component */}
       <FormAdress />
     </DivBackground>
   );
 };
 
+// Exporting the ContentProfile component for use in other parts of the application
 export default ContentProfile;

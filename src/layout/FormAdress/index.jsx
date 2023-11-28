@@ -1,10 +1,6 @@
-// react
+// Importing React hooks, components, styled components, font awesome icons, Zustand, Axios, and notification service
 import { useState, useEffect } from "react";
-
-// components
 import InputProfile from "../../components/InputProfile";
-
-// styled components
 import {
   DivForm,
   Subtitle,
@@ -14,24 +10,16 @@ import {
   ButtonSend,
   ButtonCancel,
 } from "../ContentProfile/style";
-
-// font awesome
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-
-// zustend
 import { useAuthStore } from "../../stores/authStore/authStore";
-
-// axios
 import { api } from "../../services/api";
-
-// notify
 import { notify } from "../../services/notify";
 import axios from "axios";
 
+// Functional component for handling user address information in the profile form
 const FormAdress = () => {
+  // State variables for enabling form, and storing address data
   const [enableForm, setEnableForm] = useState(false);
-
-  // content adress data
   const [cep, setCep] = useState("");
   const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
@@ -39,23 +27,26 @@ const FormAdress = () => {
   const [street, setStreet] = useState("");
   const [uf, setUf] = useState("");
 
+  // Zustand hook to access authentication information
   const auth = useAuthStore((state) => state.accessToken);
 
+  // Axios header with authorization token
   const header = {
     Authorization: "Bearer " + auth,
   };
 
+  // Function to handle cancel button click
   const handleCancel = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
-
-    handleGetContent();
-
-    setEnableForm(false);
+    handleGetContent(); // Restores original content from the server
+    setEnableForm(false); // Disables the form
   };
 
+  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
+    // Request data for updating user address
     const requestData = {
       cep: cep,
       city: city,
@@ -65,6 +56,7 @@ const FormAdress = () => {
       uf: uf,
     };
 
+    // Sending a PUT request to update user address
     await api
       .put("/api/adress/1/search/", requestData, { headers: header })
       .then((response) => {
@@ -75,17 +67,19 @@ const FormAdress = () => {
         for (const errorString of errors) {
           notify({ content: errorString[0], type: 1 });
         }
-        handleGetContent();
+        handleGetContent(); // Restores original content from the server in case of an error
       });
 
-    setEnableForm(false);
+    setEnableForm(false); // Disables the form after submission
   };
 
+  // Function to get user address content from the server
   const handleGetContent = async () => {
     if (auth) {
       await api
         .get("/api/adress/search/", { headers: header })
         .then((response) => {
+          // Setting state variables with address data
           setCep(response.data.cep);
           setCity(response.data.city);
           setNeighborhood(response.data.neighborhood);
@@ -97,11 +91,13 @@ const FormAdress = () => {
     }
   };
 
+  // Function to handle CEP (zip code) input and fetch additional address information
   const handleCep = async () => {
-    if (cep.length == 8) {
+    if (cep.length === 8) {
       await axios
         .get(`https://viacep.com.br/ws/${cep}/json/`)
         .then((response) => {
+          // Setting state variables with additional address information
           setCity(response.data.localidade);
           setNeighborhood(response.data.bairro);
           setStreet(response.data.logradouro);
@@ -111,25 +107,33 @@ const FormAdress = () => {
     }
   };
 
+  // Fetching user address content from the server on component mount
   useEffect(() => {
     handleGetContent();
   }, [auth]);
 
+  // Fetching additional address information based on CEP input
   useEffect(() => {
     handleCep();
   }, [cep]);
 
+  // Rendering a styled div container for the address information form
   return (
     <DivForm>
-      <Subtitle>Profile adress: </Subtitle>
+      {/* Displaying a subtitle for the address information section */}
+      <Subtitle>Profile address: </Subtitle>
 
+      {/* Creating a styled separator div for input elements */}
       <SeparatorInput>
+        {/* Displaying an InputProfile component for the Street field */}
         <InputProfile
           text="Street"
           enable={enableForm}
           value={street}
           onChange={(e) => setStreet(e.target.value)}
         />
+
+        {/* Displaying an InputProfile component for the Number House field */}
         <InputProfile
           text="Number House"
           enable={enableForm}
@@ -138,6 +142,7 @@ const FormAdress = () => {
         />
       </SeparatorInput>
 
+      {/* Displaying an InputProfile component for the Neighborhood field */}
       <InputProfile
         text="Neighborhood"
         enable={enableForm}
@@ -145,13 +150,17 @@ const FormAdress = () => {
         onChange={(e) => setNeighborhood(e.target.value)}
       />
 
+      {/* Creating a styled separator div for input elements */}
       <SeparatorInput>
+        {/* Displaying an InputProfile component for the City field */}
         <InputProfile
           text="City"
           enable={enableForm}
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
+
+        {/* Displaying an InputProfile component for the UF (state) field */}
         <InputProfile
           text="UF"
           enable={enableForm}
@@ -160,6 +169,7 @@ const FormAdress = () => {
         />
       </SeparatorInput>
 
+      {/* Displaying an InputProfile component for the CEP field */}
       <InputProfile
         text="CEP"
         enable={enableForm}
@@ -167,22 +177,31 @@ const FormAdress = () => {
         onChange={(e) => setCep(e.target.value)}
       />
 
+      {/* Creating a div container for buttons */}
       <DivButtons>
+        {/* Conditional rendering of buttons based on the form state */}
         {enableForm ? (
           <>
-            <ButtonCancel onClick={handleCancel}>Cancelar</ButtonCancel>
+            {/* Displaying a cancel button that calls the handleCancel function on click */}
+            <ButtonCancel onClick={handleCancel}>Cancel</ButtonCancel>
+
+            {/* Displaying a submit button that calls the handleSubmit function on click */}
             <ButtonSend type="submit" onClick={handleSubmit} />
           </>
         ) : (
-          <IconEdit
-            icon={faPenToSquare}
-            size="2xl"
-            onClick={(e) => setEnableForm(true)}
-          />
+          <>
+            {/* Displaying an edit icon that enables the form on click */}
+            <IconEdit
+              icon={faPenToSquare}
+              size="2xl"
+              onClick={(e) => setEnableForm(true)}
+            />
+          </>
         )}
       </DivButtons>
     </DivForm>
   );
 };
 
+// Exporting the FormAdress component for use in other parts of the application
 export default FormAdress;

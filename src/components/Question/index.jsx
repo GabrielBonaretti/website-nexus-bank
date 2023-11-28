@@ -1,4 +1,4 @@
-// styled components
+// Importing styled components for the Question component
 import {
   ButtonStyled,
   ContentQuestion,
@@ -7,18 +7,21 @@ import {
   TitleQuestion,
 } from "./style";
 
-// font awesome
+// Importing FontAwesomeIcon and icons for plus and minus
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-// react
+// Importing React's useEffect and useState hooks
 import { useEffect, useState } from "react";
 
+// Functional component for a question with toggleable content
 const Question = ({ title, content }) => {
+  // State to manage the visibility of content and animation height
   const [hiddenContent, setHiddenContent] = useState(true);
   const [heightAnimation, setHeightAnimation] = useState("50px");
 
-  const verifyHeight = (e) => {
+  // Function to set the animation height based on window width
+  const verifyHeight = () => {
     if (window.innerWidth > 1060) {
       setHeightAnimation("50px");
     } else if (window.innerWidth > 775) {
@@ -36,16 +39,22 @@ const Question = ({ title, content }) => {
     }
   };
 
+  // Effect to update height on window width change
   useEffect(() => {
-    // verifyHeight()
     verifyHeight();
   }, [window.innerWidth]);
 
+  // Rendering a div container for the question
   return (
     <DivQuestion>
+      {/* Creating a div container for the question title and toggle button */}
       <DivTitleQuestion>
+        {/* Displaying the question title */}
         <TitleQuestion>{title}</TitleQuestion>
-        <ButtonStyled onClick={(e) => setHiddenContent(!hiddenContent)}>
+        
+        {/* Rendering a button to toggle content visibility */}
+        <ButtonStyled onClick={() => setHiddenContent(!hiddenContent)}>
+          {/* Displaying a plus or minus icon based on content visibility */}
           {hiddenContent ? (
             <FontAwesomeIcon icon={faPlus} size="2xl" />
           ) : (
@@ -54,6 +63,7 @@ const Question = ({ title, content }) => {
         </ButtonStyled>
       </DivTitleQuestion>
 
+      {/* Displaying the question content with dynamic height and visibility */}
       <ContentQuestion $size={heightAnimation} $hidden={hiddenContent}>
         {content}
       </ContentQuestion>
@@ -61,4 +71,5 @@ const Question = ({ title, content }) => {
   );
 };
 
+// Exporting the Question component for use in other parts of the application
 export default Question;

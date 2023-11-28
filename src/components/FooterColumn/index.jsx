@@ -1,5 +1,7 @@
+// Importing styled components for the FooterColumn
 import { Div, DivTopics, Text, Title } from "./style";
 
+// Functional component for a column in the footer
 const FooterColumn = ({ title, option1, option2, option3, option4 }) => {
   return (
     <Div>
